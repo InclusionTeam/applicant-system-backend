@@ -1,12 +1,13 @@
 {
   "name": "simple-node-boilerplate",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Introduction",
   "main": "server.js",
   "scripts": {
     "seedTestData": "rm -f *.test.sqlite3 && sequelize-cli db:migrate && sequelize-cli db:seed:all",
     "test": "NODE_ENV=test npm run seedTestData && npx jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -25,5 +26,13 @@
     "jest": "^25.1.0",
     "nodemon": "^2.0.2",
     "sequelize-cli": "^5.5.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InclusionTeam/applicant-system-backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/InclusionTeam/applicant-system-backend/issues"
+  },
+  "homepage": "https://github.com/InclusionTeam/applicant-system-backend#readme"
 }
