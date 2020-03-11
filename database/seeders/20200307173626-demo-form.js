@@ -4,7 +4,7 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert("Forms", [
       {
-        cohort: 1,
+        CohortId: 1,
         name: 'John Cena',
         phone: '9175393093',
         address: '3230 Steuben Ave, apt G3',
