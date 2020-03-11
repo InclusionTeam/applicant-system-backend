@@ -28,10 +28,6 @@ module.exports = (sequelize, DataTypes) => {
     skilllevel: DataTypes.STRING,
   }, {});
 
-  Forn.associate = function (models) {
-    Form.belongsTo(models.Cohort, { foreignKey: 'cohort', as: 'cohort' })
-  };
-
   class Form extends sequelizeForm {
     static async all() {
       return await this.findAll();
@@ -69,6 +65,10 @@ module.exports = (sequelize, DataTypes) => {
       })
     }
   }
+
+  Form.associate = function (models) {
+    Form.belongsTo(models.Cohort, { foreignKey: 'cohort', as: 'group' })
+  };
 
   return Form;
 };
