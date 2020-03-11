@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Form } = require('../../models');
+const { Form, Cohort } = require('../../database/models');
 const cors = require('cors');
 
 router.get('/', cors(), async (req, res) => {
