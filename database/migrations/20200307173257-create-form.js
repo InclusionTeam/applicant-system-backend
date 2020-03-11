@@ -8,6 +8,14 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      cohort: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Cohorts',
+          key: 'id'
+        }
+      },
       name: {
         type: Sequelize.STRING
       },

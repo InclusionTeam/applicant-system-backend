@@ -2,6 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   const sequelizeForm = sequelize.define('Form', {
     name: DataTypes.STRING,
+    cohort: DataTypes.INTEGER,
     phone: DataTypes.STRING,
     address: DataTypes.STRING,
     city: DataTypes.STRING,
@@ -27,6 +28,10 @@ module.exports = (sequelize, DataTypes) => {
     skilllevel: DataTypes.STRING,
   }, {});
 
+  Forn.associate = function (models) {
+    Form.belongsTo(models.Cohort, { foreignKey: 'cohort', as: 'cohort' })
+  };
+
   class Form extends sequelizeForm {
     static async all() {
       return await this.findAll();
@@ -35,6 +40,7 @@ module.exports = (sequelize, DataTypes) => {
     static async new(req, res) {
       return await this.create({
         name: req.body.name,
+        cohort: req.body.cohort,
         phone: req.body.phone,
         address: req.body.address,
         city: req.body.city,
