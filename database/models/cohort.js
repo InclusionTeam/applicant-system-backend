@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     start_date: DataTypes.DATE
   }, {});
   Cohort.associate = function (models) {
-    Cohort.hasMany(models.Form, { foreignKey: 'id', as: 'cohort' })
+    Cohort.hasMany(models.Form)
   };
   return Cohort;
 };

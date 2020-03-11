@@ -2,7 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   const sequelizeForm = sequelize.define('Form', {
     name: DataTypes.STRING,
-    cohort: DataTypes.INTEGER,
+    CohortId: DataTypes.INTEGER,
     phone: DataTypes.STRING,
     address: DataTypes.STRING,
     city: DataTypes.STRING,
@@ -67,7 +67,7 @@ module.exports = (sequelize, DataTypes) => {
   }
 
   Form.associate = function (models) {
-    Form.belongsTo(models.Cohort, { foreignKey: 'cohort', as: 'group' })
+    Form.belongsTo(models.Cohort)
   };
 
   return Form;
