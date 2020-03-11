@@ -2,10 +2,10 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('Cohorts', [
+    return queryInterface.bulkInsert('cohorts', [
       {
-        start_date: new Date('27 Jan 2020').toISOString(),
-        is_published: true,
+        starts: new Date('27 Jan 2020').toISOString(),
+        ispublished: true,
         createdAt: new Date(),
         updatedAt: new Date()
       }
