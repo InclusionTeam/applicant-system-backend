@@ -1,17 +1,17 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Cohorts', {
+    return queryInterface.createTable('cohorts', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      start_date: {
+      starts: {
         type: Sequelize.DATE
       },
-      is_published: {
+      ispublished: {
         type: Sequelize.BOOLEAN
       },
       createdAt: {
@@ -25,6 +25,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Cohorts');
+    return queryInterface.dropTable('cohorts');
   }
 };

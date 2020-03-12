@@ -1,18 +1,18 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Forms', {
+    return queryInterface.createTable('forms', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      cohort: {
+      CohortId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'Cohorts',
+          model: 'cohorts',
           key: 'id'
         }
       },
@@ -99,6 +99,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Forms');
+    return queryInterface.dropTable('forms');
   }
 };

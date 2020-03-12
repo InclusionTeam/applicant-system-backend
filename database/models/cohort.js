@@ -1,10 +1,11 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Cohort = sequelize.define('Cohort', {
-    start_date: DataTypes.DATE
+    starts: DataTypes.DATE,
+    ispublished: DataTypes.BOOLEAN
   }, {});
   Cohort.associate = function (models) {
-    Cohort.hasMany(models.Form, { foreignKey: 'id', as: 'cohort' })
+    Cohort.hasMany(models.Form);
   };
   return Cohort;
 };

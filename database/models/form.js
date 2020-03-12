@@ -1,8 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const sequelizeForm = sequelize.define('Form', {
+  const Form = sequelize.define('Form', {
     name: DataTypes.STRING,
-    cohort: DataTypes.INTEGER,
+    CohortId: DataTypes.INTEGER,
     phone: DataTypes.STRING,
     address: DataTypes.STRING,
     city: DataTypes.STRING,
@@ -25,49 +25,12 @@ module.exports = (sequelize, DataTypes) => {
     laptop: DataTypes.BOOLEAN,
     whyinterested: DataTypes.TEXT,
     howheard: DataTypes.STRING,
-    skilllevel: DataTypes.STRING,
-  }, {});
+    skilllevel: DataTypes.STRING
+  });
 
-  class Form extends sequelizeForm {
-    static async all() {
-      return await this.findAll();
-    }
-
-    static async new(req, res) {
-      return await this.create({
-        name: req.body.name,
-        cohort: req.body.cohort,
-        phone: req.body.phone,
-        address: req.body.address,
-        city: req.body.city,
-        state: req.body.state,
-        zip: req.body.zip,
-        birthdate: new Date(req.body.birthdate).toISOString(),
-        gender: req.body.gender,
-        ethnicity: req.body.ethnicity,
-        linkedin: req.body.linkedin,
-        github: req.body.github,
-        extralink: req.body.extralink,
-        coverletter: req.body.coverletter,
-        education: req.body.education,
-        collegemajor: req.body.collegemajor,
-        collegelocation: req.body.collegelocation,
-        isemployed: req.body.isemployed,
-        employer: req.body.employer,
-        military: req.body.military,
-        income: req.body.income,
-        laptop: req.body.laptop,
-        whyinterested: req.body.whyinterested,
-        howheard: req.body.howheard,
-        skilllevel: req.body.skilllevel,
-        createdAt: new Date(),
-        updatedAt: new Date()
-      })
-    }
-  }
 
   Form.associate = function (models) {
-    Form.belongsTo(models.Cohort, { foreignKey: 'cohort', as: 'group' })
+    Form.belongsTo(models.Cohort)
   };
 
   return Form;
